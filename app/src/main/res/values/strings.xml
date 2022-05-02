@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">PMRAPP1</string>
+    <string name="hello_app">Hello App</string>
 </resources>
