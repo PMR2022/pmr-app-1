@@ -1,5 +1,6 @@
 package com.example.pmrapp1;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -33,6 +34,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View view) {
         switch(view.getId()) {
             case R.id.btnOK: alerter("click sur BtnOK (3)");
+            // Objectif : déclencher une nouvelle activité
+            // en lui passant la valeur du champ saisi par l'utilisateur
+                alerter("contenu actuel : " + refEdtPseudo.getText().toString());
+                Intent versSecondAct;
+                versSecondAct = new Intent(this,SecondActivity.class);
+                startActivity(versSecondAct);
             break;
             case R.id.pseudo: alerter("click sur pseudo");
             break;
