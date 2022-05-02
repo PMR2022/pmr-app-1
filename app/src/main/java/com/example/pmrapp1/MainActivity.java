@@ -38,7 +38,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             // en lui passant la valeur du champ saisi par l'utilisateur
                 alerter("contenu actuel : " + refEdtPseudo.getText().toString());
                 Intent versSecondAct;
+                Bundle b = new Bundle();
+                b.putString("pseudo",refEdtPseudo.getText().toString());
+
                 versSecondAct = new Intent(this,SecondActivity.class);
+                versSecondAct.putExtras(b);
                 startActivity(versSecondAct);
             break;
             case R.id.pseudo: alerter("click sur pseudo");
