@@ -4,17 +4,39 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Toast;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     private static final String CAT = "PMR2022";
+    Button refBtnOK;
+    EditText refEdtPseudo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Log.i(CAT,"onCreate");
+
+        // Référence vers le bouton OK
+        refBtnOK = findViewById(R.id.btnOK);
+        refEdtPseudo = findViewById(R.id.pseudo);
+
+        // Affection d'un gestionnaire de click
+        refBtnOK.setOnClickListener(this);
+        refEdtPseudo.setOnClickListener(this);
+    }
+
+    @Override
+    public void onClick(View view) {
+        switch(view.getId()) {
+            case R.id.btnOK: alerter("click sur BtnOK (3)");
+            break;
+            case R.id.pseudo: alerter("click sur pseudo");
+            break;
+        }
     }
 
     @Override
@@ -36,7 +58,11 @@ public class MainActivity extends AppCompatActivity {
         t.show();
     }
 
+    // Réaction au clic sur bouton :
+    // 1) attribut android:onClick="foo" dans le bouton dans le layout
     public void foo(View view) {
         alerter("click sur BtnOK");
     }
+
+
 }
